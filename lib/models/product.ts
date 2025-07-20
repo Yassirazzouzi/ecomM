@@ -12,7 +12,7 @@ export interface Product {
 // Fonction pour convertir un produit MongoDB en produit pour l'interface
 export function convertMongoProduct(mongoProduct: any): Product {
   return {
-    id: mongoProduct._id?.toString(),
+    id: mongoProduct._id ? mongoProduct._id.toString() : undefined,
     _id: mongoProduct._id,
     nom: mongoProduct.nom,
     quantite: mongoProduct.quantite,
